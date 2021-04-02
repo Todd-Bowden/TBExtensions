@@ -6,7 +6,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
     static func earlier(date1: Date, date2: Date) -> Date {
         if date1 < date2 {

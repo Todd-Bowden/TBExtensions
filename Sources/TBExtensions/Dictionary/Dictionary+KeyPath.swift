@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Dictionary {
+public extension Dictionary {
     
     subscript(keyPath keyPath: String) -> Any? {
         get {

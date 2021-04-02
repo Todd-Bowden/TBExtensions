@@ -6,7 +6,7 @@
 
 import Foundation
 
-extension Encodable {
+public extension Encodable {
 
     func toJsonData() throws -> Data {
         let encoder = JSONEncoder()

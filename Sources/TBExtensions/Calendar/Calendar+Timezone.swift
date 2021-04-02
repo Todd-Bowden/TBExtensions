@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Calendar {
+public extension Calendar {
     
     static func currentCalendar(timezone: TimeZone) -> Calendar {
         var calendar = Calendar.current

@@ -4,7 +4,7 @@
 
 import Foundation
 
-extension Data {
+public extension Data {
 
     var toUnsafeMutablePointerBytes: UnsafeMutablePointer<UInt8> {
         let pointerBytes = UnsafeMutablePointer<UInt8>.allocate(capacity: self.count)

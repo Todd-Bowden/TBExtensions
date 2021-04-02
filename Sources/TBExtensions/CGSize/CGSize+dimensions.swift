@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-extension CGSize {
+public extension CGSize {
 
     var lesserDimension: CGFloat {
         return self.width < self.height ? self.width : self.height

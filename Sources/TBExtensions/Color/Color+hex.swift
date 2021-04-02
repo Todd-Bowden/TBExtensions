@@ -6,7 +6,8 @@ import Foundation
 import SwiftUI
 
 @available(iOS 14.0, *)
-extension Color {
+
+public extension Color {
 
     var hex: String {
         guard let cgColor = self.cgColor else { return "" }

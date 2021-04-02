@@ -6,7 +6,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
     enum UTF8EncodingError: Swift.Error {
         case cannotEncodeAsUTF8

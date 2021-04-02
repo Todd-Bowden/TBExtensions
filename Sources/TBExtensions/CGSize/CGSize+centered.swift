@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension CGSize {
+public extension CGSize {
     
     func centeredFrame(parentSize: CGSize) -> CGRect {
         let x = round((parentSize.width - self.width) / 2)

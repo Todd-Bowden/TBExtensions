@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     var uniqueStrings: [String] {
         let array = self.onlyStrings

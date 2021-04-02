@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
     func addAttributedBold(fontSize: CGFloat, weight: UIFont.Weight, color: UIColor? = nil) -> NSAttributedString {
         let font = UIFont.systemFont(ofSize: fontSize, weight: weight)

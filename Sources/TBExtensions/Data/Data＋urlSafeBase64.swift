@@ -6,7 +6,7 @@
 import Foundation
 
 
-extension Data {
+public extension Data {
     var urlSafeBase64: String {
         return self.base64EncodedString()
             .replacingOccurrences(of: "+", with: "-")
