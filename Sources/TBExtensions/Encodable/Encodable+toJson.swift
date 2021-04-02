@@ -15,10 +15,12 @@ public extension Encodable {
         return try encoder.encode(self)
     }
 
-    func toJsonString() throws -> String {
+    func toJsonString(prettyPrinted: Bool = true) throws -> String {
         let encoder = JSONEncoder()
         encoder.dataEncodingStrategy = .base64
-        encoder.outputFormatting = .prettyPrinted
+        if prettyPrinted {
+            encoder.outputFormatting = .prettyPrinted
+        }
         let jsonData = try encoder.encode(self)
         return try String(utf8Data: jsonData)
     }
