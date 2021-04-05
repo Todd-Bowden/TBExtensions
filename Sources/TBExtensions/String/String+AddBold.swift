@@ -5,6 +5,8 @@
 //  Copyright © 2016 Todd Bowden. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import Foundation
 import UIKit
 
@@ -38,3 +40,5 @@ public extension String {
     }
     
 }
+
+#endif
