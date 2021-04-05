@@ -5,6 +5,7 @@
 import Foundation
 import SwiftUI
 
+@available(OSX 11, *)
 @available(iOS 14.0, *)
 
 public extension Color {
