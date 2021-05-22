@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array {
+public extension Array {
     
     func value(index: Int, default: Element) -> Element {
         if index < self.count {
