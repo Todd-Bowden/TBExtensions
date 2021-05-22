@@ -18,19 +18,19 @@ public extension Date {
         return Calendar.current.isDateInToday(self)
     }
     
-    func isToday(timeZone: TimeZone) -> Bool {
+    func isToday(timeZone: TimeZone = .current) -> Bool {
         return  Calendar.currentCalendar(timezone: timeZone).isDateInToday(self)
     }
     
-    func isTomorrow(timezone: TimeZone) -> Bool {
-        return self.startOfDay(timezone: timezone) == Date().tomorrow?.startOfDay(timezone: timezone)
+    func isTomorrow(timezone: TimeZone = .current) -> Bool {
+        return self.startOfDay(timezone: timezone) == Date().tomorrow(timezone: timezone)
     }
     
-    var tomorrow: Date? {
-        return (Calendar.current as NSCalendar).date(byAdding: .day, value: 1, to: self, options: NSCalendar.Options(rawValue: 0))
+    func tomorrow(timezone: TimeZone = .current) -> Date {
+        return (self.plusDays(1) ?? self.addingTimeInterval(TimeInterval(hours: 24))).startOfDay(timezone: timezone)
     }
     
-    func startOfDay(timezone: TimeZone) -> Date {
+    func startOfDay(timezone: TimeZone = .current) -> Date {
         return Calendar.currentCalendar(timezone: timezone).startOfDay(for: self)
     }
         
@@ -40,7 +40,7 @@ public extension Date {
         return calendar.date(from: components)
     }
     
-    func hour(timezone: TimeZone) -> Int {
+    func hour(timezone: TimeZone = .current) -> Int {
         let calendar = Calendar.currentCalendar(timezone: timezone)
         let components = (calendar as NSCalendar).components([.hour], from: self)
         return components.hour!
@@ -52,6 +52,13 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
 
+    func plusMinutes(_ minutes: TimeInterval) -> Date {
+        return self.addingTimeInterval(60 * minutes)
+    }
+    
+    func plusHours(_ hours: TimeInterval) -> Date {
+        return self.plusMinutes(60 * hours)
+    }
     
 }
 
