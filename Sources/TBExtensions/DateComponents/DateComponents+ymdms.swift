@@ -12,6 +12,10 @@ public extension DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day], from: Date())
     }
     
+    static func yearMonthDay(date: Date): DateComponents {
+        return Calendar.current.dateComponents([.year, .month, .day], from: date)
+    }
+    
     var yearMonthDay: String {
         guard let year = year, let month = month, let day = day else { return "" }
         return String(format: "%04d-%02d-%02d", year, month, day)
