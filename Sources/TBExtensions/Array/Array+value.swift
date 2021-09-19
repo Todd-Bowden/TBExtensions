@@ -17,4 +17,12 @@ public extension Array {
         }
     }
     
+    func optionalValue(index: Int) -> Element? {
+        if index < self.count {
+            return self[index]
+        } else {
+            return nil
+        }
+    }
+    
 }
