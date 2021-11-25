@@ -10,18 +10,15 @@ import SwiftUI
 
 public extension Color {
 
-    var hex: String {
-        guard let cgColor = self.cgColor else { return "" }
-        guard let rgb = cgColor.components?.prefix(3) else { return "" }
-        guard rgb.count == 3 else { return "" }
-        let r = Data([UInt8(rgb[0] * 255)]).hex
-        let g = Data([UInt8(rgb[1] * 255)]).hex
-        let b = Data([UInt8(rgb[2] * 255)]).hex
-        return r + g + b
-
+    var rgbHex: String {
+        guard let rgba = self.rgba255 else { return "" }
+        return rgba.red.hex + rgba.green.hex + rgba.blue.hex
     }
-
-
+    
+    var rgbaHex: String {
+        guard let rgba = self.rgba255 else { return "" }
+        return rgba.red.hex + rgba.green.hex + rgba.blue.hex + rgba.alpha.hex
+    }
 
     init(hex: String) {
         guard hex.count >= 6 else {
@@ -32,8 +29,12 @@ public extension Color {
         let r = Color.decimal(hexDigit: hex.removeFirst()) * 16 + Color.decimal(hexDigit: hex.removeFirst())
         let g = Color.decimal(hexDigit: hex.removeFirst()) * 16 + Color.decimal(hexDigit: hex.removeFirst())
         let b = Color.decimal(hexDigit: hex.removeFirst()) * 16 + Color.decimal(hexDigit: hex.removeFirst())
+        var a: UInt8 = 255
+        if hex.count >= 2 {
+            a = Color.decimal(hexDigit: hex.removeFirst()) * 16 + Color.decimal(hexDigit: hex.removeFirst())
+        }
 
-        self.init(.sRGB, red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255, opacity: 1)
+        self.init(.sRGB, red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255, opacity: Double(a) / 255)
     }
 
 
