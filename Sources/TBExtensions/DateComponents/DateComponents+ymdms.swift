@@ -12,7 +12,7 @@ public extension DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day], from: Date())
     }
     
-    static func yearMonthDay(date: Date): DateComponents {
+    static func yearMonthDay(date: Date) -> DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day], from: date)
     }
     
