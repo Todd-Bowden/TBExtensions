@@ -1,3 +1,3 @@
 # TBExtensions
 
-A description of this package.
+Miscellaneous Swift extensions
